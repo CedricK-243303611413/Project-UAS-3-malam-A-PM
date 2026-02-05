@@ -23,49 +23,41 @@ class ChatItem extends StatelessWidget {
         );
       },
       child: Container(
-        margin: const EdgeInsets.all(8),
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.lightBlueAccent,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20),
-            bottomRight: Radius.circular(20),
-          ),
+          color: Colors.lightBlue.shade100,
+          borderRadius: BorderRadius.circular(16),
           border: Border.all(color: Colors.red, width: 2),
         ),
         child: Row(
           children: [
             const CircleAvatar(
+              radius: 24,
               backgroundImage: AssetImage('images/avatar.jpeg'),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            const SizedBox(width: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(nama, style: const TextStyle(fontWeight: FontWeight.bold)),
+                Row(
                   children: [
-                    Text(
-                      nama,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.check, size: 16, color: Colors.black),
-                        const SizedBox(width: 4),
-                        Text(
-                          status,
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
+                    const Icon(Icons.check, size: 14),
+                    const SizedBox(width: 4),
+                    Text(status),
                   ],
                 ),
+              ],
+            ),
+            const Spacer(),
+            Text(
+              bulan,
+              style: const TextStyle(
+                color: Colors.blue,
+                fontStyle: FontStyle.italic,
               ),
             ),
-            Text(bulan, style: const TextStyle(color: Colors.black)),
           ],
         ),
       ),
